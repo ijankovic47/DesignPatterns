@@ -1,0 +1,2 @@
+The composite pattern allows you to compose objects into tree structures and lets clients treat 
+individual objects and compositions of objects uniformly.
