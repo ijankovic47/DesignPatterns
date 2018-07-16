@@ -10,5 +10,4 @@ public class Main {
 		
 		ws.setMeasurements(31, 15, 1001);
 	}
-
 }
