@@ -1,0 +1,5 @@
+The factory method pattern creates an interface for creating an object, but lets subclasses
+decide which class to instantiate. 
+
+The abstract factory pattern defines an interface for creating family of related or dependent 
+objects without specifying their concrete classes.
