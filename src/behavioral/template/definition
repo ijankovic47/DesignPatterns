@@ -1,0 +1,3 @@
+The template method pattern defines the skeleton of an algorithm in a method, differing some of the
+steps to the subclasses. It allows the subclasses to redefine certain steps in the algorithm without
+changing the algorithms's structure.
