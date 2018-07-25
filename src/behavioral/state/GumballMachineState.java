@@ -1,6 +1,8 @@
 package behavioral.state;
 
-public abstract class GumballMachineState {
+import java.io.Serializable;
+
+public abstract class GumballMachineState implements Serializable{
 
 	protected GumballMachine gumballMachine;
 	

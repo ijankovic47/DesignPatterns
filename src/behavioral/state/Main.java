@@ -1,10 +1,12 @@
 package behavioral.state;
 
+import java.rmi.RemoteException;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException {
 		
-		GumballMachine gumbalMachine=new GumballMachine(1);
+		GumballMachine gumbalMachine=new GumballMachine("Location1", 1);
 		gumbalMachine.ejectQuarter();
 		gumbalMachine.turnCrank();
 		gumbalMachine.disense();

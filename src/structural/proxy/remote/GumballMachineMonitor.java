@@ -1,11 +1,11 @@
 package structural.proxy.remote;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
-import structural.proxy.remote.gumball.GumballMachine;
+import behavioral.state.GumballMachine;
 
 public class GumballMachineMonitor {
 
@@ -13,9 +13,11 @@ public class GumballMachineMonitor {
 		
 		GumballMachineRemote machine;
 		try {
-			//LocateRegistry.createRegistry(1099);
+			LocateRegistry.createRegistry(1099);
 			GumballMachineRegistrator.register(new GumballMachine("Zemun", 2));
-			machine = (GumballMachineRemote) Naming.lookup("gumball@Zemun");
+			
+			Registry registry=LocateRegistry.getRegistry("localhost", 1099);
+			machine = (GumballMachineRemote) registry.lookup("gumball@Zemun"); //proxy
 			System.out.println("Location: "+machine.getLocation());
 			System.out.println("Gumballs left: "+machine.getCount());
 			System.out.println("State: "+machine.getState());
@@ -23,7 +25,7 @@ public class GumballMachineMonitor {
 			machine.releaseBall();
 			System.out.println("Gumballs left: "+machine.getCount());
 			
-		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+		} catch (RemoteException | NotBoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
